@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
 	// Getting data
-	const { product } = useSelector((state) => state.detail);
+	const { product } = useSelector((state) => state.products);
 	return (
 		<div className="detail">
 			<img src={product.imageUrl} alt={product.model} />

@@ -34,7 +34,7 @@ export const loadProducts = () => async (dispatch) => {
 
 export const loadDetail = (id) => async (dispatch) => {
 	try {
-		const { data } = await axios.get(productDetailsURL());
+		const { data } = await axios.get(productDetailsURL(id));
 		dispatch({
 			type: GET_DETAIL,
 			payload: {

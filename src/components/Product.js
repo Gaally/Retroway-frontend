@@ -1,11 +1,11 @@
 import React from "react";
-
 // Styling & Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
 // Redux
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/productsAction";
+import { Link } from "react-router-dom";
 
 const Product = ({ model, imageUrl, price, id }) => {
 	// Load details
