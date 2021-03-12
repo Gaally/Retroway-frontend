@@ -1,5 +1,6 @@
 //Base URL
-const api = "http://localhost:8080/api/";
+const api = process.env.REACT_APP_API;
+console.log(api);
 const products = "products/";
 const featured = "featured/";
 
