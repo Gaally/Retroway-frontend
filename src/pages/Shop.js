@@ -61,19 +61,17 @@ const Shop = () => {
 			) : (
 				""
 			)}
+			<h2>Products</h2>
 			<Products>
-				<h2>Products</h2>
 				{products.map((products) => (
-					<Link to={`/${products.id}`}>
-						<Product
-							id={products.id}
-							imageUrl={products.imageUrl}
-							model={products.model}
-							price={products.price}
-							description={products.description}
-							key={products.id}
-						/>
-					</Link>
+					<Product
+						id={products.id}
+						imageUrl={products.imageUrl}
+						model={products.model}
+						price={products.price}
+						description={products.description}
+						key={products.id}
+					/>
 				))}
 			</Products>
 		</ProductList>
@@ -81,24 +79,16 @@ const Shop = () => {
 };
 
 const StyledSearch = styled.form`
-	padding: 3rem 5rem;
+	padding: 2rem 2rem;
 	text-align: center;
 	input {
-		width: 30%;
-		font-size: 1.5rem;
+		width: 20vw;
+		font-size: 1rem;
 		padding: 0.5rem;
 		border: none;
 		margin-top: 1rem;
 		box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 		outline: none;
-	}
-	button {
-		font-size: 1.5rem;
-		border: none;
-		padding: 0.5rem 2rem;
-		cursor: pointer;
-		background: #ff7676;
-		color: #f5f5fa;
 	}
 `;
 
@@ -112,8 +102,8 @@ const ProductList = styled(motion.div)`
 const Products = styled(motion.div)`
 	min-height: 80vh;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	grid-column-gap: 3rem;
+	grid-template-columns: repeat(auto-fit, minmax(50vh, 1fr));
+	grid-column-gap: 2rem;
 	grid-row-gap: 5rem;
 `;
 

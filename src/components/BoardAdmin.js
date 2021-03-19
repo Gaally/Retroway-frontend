@@ -9,7 +9,6 @@ import { loadProducts, deleteProduct } from "../actions/productsAction";
 import { Link } from "react-router-dom";
 
 const BoardAdmin = () => {
-	const [role, setRole] = useState("");
 	const { user: currentUser } = useSelector((state) => state.auth);
 
 	const [currentId, setCurrentId] = useState(0);

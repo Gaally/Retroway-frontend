@@ -8,8 +8,8 @@ import Details from "./pages/Details";
 import About from "./pages/About";
 import Account from "./pages/Account";
 import BoardAdmin from "./components/BoardAdmin";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Profile from "./components/Profile";
 

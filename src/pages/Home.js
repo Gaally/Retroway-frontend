@@ -5,10 +5,10 @@ import { loadProducts } from "../actions/productsAction";
 // Components
 import Product from "../components/Product";
 // Styling & Animation
+import "react-alice-carousel/lib/alice-carousel.css";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-// Router
-import { Link } from "react-router-dom";
+import AliceCarousel from "react-alice-carousel";
 
 const Home = () => {
 	// Fetch Products
@@ -19,13 +19,22 @@ const Home = () => {
 	// Get data
 	const { featured } = useSelector((state) => state.products);
 
+	//Slider
+	const responsive = {
+		0: { items: 1 },
+		568: { items: 2 },
+		1024: { items: 3 },
+	};
+
 	return (
 		<FeaturedList>
 			<h2>Featured Products</h2>
-
 			<Featured>
-				{featured.map((featured) => (
-					<Link to={`/${featured.id}`} key={featured.id}>
+				<AliceCarousel
+					mouseTracking
+					responsive={responsive}
+					disableButtonsControls>
+					{featured.map((featured) => (
 						<Product
 							id={featured.id}
 							imageUrl={featured.imageUrl}
@@ -34,26 +43,20 @@ const Home = () => {
 							description={featured.description}
 							key={featured.id}
 						/>
-					</Link>
-				))}
+					))}
+				</AliceCarousel>
 			</Featured>
 		</FeaturedList>
 	);
 };
 
 const FeaturedList = styled(motion.div)`
-	padding: 0rem 5rem;
+	padding: 2rem 3rem;
 	h2 {
-		padding: 5rem 0rem;
+		padding: 3rem 1rem;
 	}
 `;
 
-const Featured = styled(motion.div)`
-	min-height: 80vh;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	grid-column-gap: 3rem;
-	grid-row-gap: 5rem;
-`;
+const Featured = styled(motion.div)``;
 
 export default Home;

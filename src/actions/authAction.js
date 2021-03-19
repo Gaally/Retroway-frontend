@@ -15,6 +15,10 @@ export const registerUser = (
 	username,
 	email,
 	password,
+	address,
+	city,
+	country,
+	postalCode,
 ) => async (dispatch) => {
 	try {
 		const { data } = await register(
@@ -23,6 +27,10 @@ export const registerUser = (
 			username,
 			email,
 			password,
+			address,
+			city,
+			country,
+			postalCode,
 		);
 		dispatch({
 			type: REGISTER_SUCCESS,

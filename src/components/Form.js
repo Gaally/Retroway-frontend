@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createProduct, updateProduct } from "../actions/productsAction";
 
-const Form = ({ currentId, setCurrentId }) => {
+const Form = ({ currentId }) => {
 	const [postProduct, setPostProduct] = useState({
 		model: "",
 		imageUrl: "",

@@ -1,15 +1,10 @@
 import axios from "axios";
-import { authHeader } from "./api";
 
 //Base URL
 const api = "http://localhost:8080/api/";
 
 const signup = "auth/signup/";
 const signin = "auth/signin/";
-
-// User
-const userboard = "test/user";
-const adminboard = "test/admin";
 
 // Axios
 
@@ -26,20 +21,26 @@ export const logout = () => {
 	localStorage.removeItem("user");
 };
 
-export const register = (firstName, lastName, username, email, password) => {
+export const register = (
+	firstName,
+	lastName,
+	username,
+	email,
+	password,
+	address,
+	city,
+	country,
+	postalCode,
+) => {
 	return axios.post(api + signup, {
 		firstName,
 		lastName,
 		username,
 		email,
 		password,
+		address,
+		city,
+		country,
+		postalCode,
 	});
-};
-
-export const getUserBoard = () => {
-	return axios.get(api + userboard, { headers: authHeader() });
-};
-
-export const getAdminBoard = () => {
-	return axios.get(api + adminboard, { headers: authHeader() });
 };
