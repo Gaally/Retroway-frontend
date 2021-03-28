@@ -1,6 +1,7 @@
 import { useState } from "react";
 // Redux
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import { createProduct, updateProduct } from "../actions/productsAction";
 
 const Form = ({ currentId }) => {
@@ -26,9 +27,9 @@ const Form = ({ currentId }) => {
 	};
 
 	return (
-		<div className="container">
+		<StyledForm>
 			<form onSubmit={handleSubmit} autoComplete="off" method="post">
-				<h3>Adding a new Product</h3>
+				<h2>{currentId ? "Edit a product" : "Add a new product"}</h2>
 				<div className="form">
 					<label>Model</label>
 					<input
@@ -92,7 +93,7 @@ const Form = ({ currentId }) => {
 						}
 					/>
 				</div>
-				<div className="form">
+				<div className="checked-form">
 					<label>Featured</label>
 					<input
 						type="checkbox"
@@ -107,13 +108,52 @@ const Form = ({ currentId }) => {
 							})
 						}
 					/>
+					<div className="b-input"></div>
 				</div>
 				<button className="submit" type="submit">
 					Submit
 				</button>
 			</form>
-		</div>
+		</StyledForm>
 	);
 };
+
+const StyledForm = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 90%;
+	margin: 5rem;
+	border-bottom: 1px solid rgba(79, 79, 79, 35%);
+
+	h2 {
+		font-size: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	input {
+		background-color: rgba(79, 79, 79, 35%);
+		width: 100%;
+		border: 0;
+		font-size: 1rem;
+		padding: 0.2rem;
+		margin: 5px;
+		border-radius: 4px;
+		color: #f5f5fa;
+		font-weight: lighter;
+		border: none;
+		outline: none;
+		&:focus {
+			border: none;
+		}
+	}
+	.checked-form input {
+		margin: 0 0 0 8rem;
+	}
+
+	@media (max-width: 768px) {
+		margin: 0;
+		width: 100%;
+	}
+`;
 
 export default Form;

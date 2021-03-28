@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useSelector } from "react-redux";
+
 //Base URL
 const api = process.env.REACT_APP_API;
 const products = "products/";
@@ -13,4 +16,20 @@ export const searchProductURL = (product_model) =>
 	`${api}products?model=${product_model}`;
 
 // Orders
-export const ordersURL = () => `${api}${orders}`;
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+const common = axios.create({
+	baseURL: api,
+	headers: {
+		Authorization: "Bearer " + user.accessToken,
+		"Content-Type": "application/json",
+	},
+});
+
+export const ordered = (shipTo, totalCost) => {
+	return common.post(orders, {
+		shipTo,
+		totalCost,
+	});
+};

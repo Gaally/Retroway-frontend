@@ -65,20 +65,20 @@ const Nav = () => {
 				<span />
 			</StyledHamburger>
 			<StyledMenu isOpen={isOpen}>
-				<StyledMenuLink>
+				<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 					<Link to="/">home</Link>
 				</StyledMenuLink>
-				<StyledMenuLink>
+				<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 					<Link to="/shop">shop</Link>
 				</StyledMenuLink>
-				<StyledMenuLink>
+				<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 					<Link to="/about">about</Link>
 				</StyledMenuLink>
-				<StyledMenuLink>
+				<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 					<Link to="/contact">contact</Link>
 				</StyledMenuLink>
 				{showAdminBoard && (
-					<StyledMenuLink>
+					<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 						<Link to="/admin">
 							<div className="admin">
 								<img src={account} alt="admin" />
@@ -88,21 +88,21 @@ const Nav = () => {
 				)}
 				{currentUser ? (
 					<>
-						<StyledMenuLink>
+						<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 							<Link to="/account">
 								<div className="account">
 									<img src={account} alt="account" />
 								</div>
 							</Link>
 						</StyledMenuLink>
-						<StyledMenuLink>
+						<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 							<Link to="/login" onClick={logOut}>
 								log out
 							</Link>
 						</StyledMenuLink>
 					</>
 				) : (
-					<StyledMenuLink>
+					<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 						<Link to="/login">
 							<div className="login">
 								<img src={account} alt="login" />
@@ -110,7 +110,7 @@ const Nav = () => {
 						</Link>
 					</StyledMenuLink>
 				)}
-				<StyledMenuLink>
+				<StyledMenuLink onClick={() => setIsOpen(!isOpen)}>
 					<Link to="/cart">
 						<div className="cart">
 							<img src={shopping_cart} alt="shopping cart" /> {cartItems.length}
@@ -155,6 +155,7 @@ const StyledMenu = styled.div`
 		max-height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
 		transition: max-height 0.3s ease-in;
 		width: 100%;
+		height: 90vh;
 	}
 `;
 

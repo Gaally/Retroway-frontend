@@ -16,7 +16,6 @@ const shoppingReducer = (state = initState, action) => {
 			return {
 				...state,
 				neworder: action.payload.neworder,
-				cart: action.payload.cart,
 			};
 		case ADD_TO_CART:
 			return {

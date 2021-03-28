@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createOrder, removeFromCart } from "../actions/shoppingAction";
+import { removeFromCart } from "../actions/shoppingAction";
 import { Link } from "react-router-dom";
 import CartProduct from "../components/CartProduct";
 // Styles
@@ -14,12 +14,11 @@ const Cart = () => {
 	const removeItem = (id) => {
 		dispatch(removeFromCart(id));
 	};
-
-	const checkOutHandler = (id) => {
-		dispatch(createOrder(id));
-	};
-
 	const { cart } = useSelector((state) => state.shopping);
+
+	const cartTotal = parseInt(
+		cart.reduce((total, { price = 0 }) => total + price, 0),
+	);
 
 	return (
 		<>
@@ -43,7 +42,10 @@ const Cart = () => {
 							removeItem={removeItem}
 						/>
 					))}
-					<button onClick={checkOutHandler}>Proceed To Checkout</button>
+					<p>Total Cost : {cartTotal} €</p>
+					<Link to="/cart/checkout">
+						<button>Proceed To Checkout</button>
+					</Link>
 				</StyledCart>
 			)}
 		</>
@@ -80,6 +82,7 @@ const StyledCart = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 
+	a,
 	button {
 		align-self: center;
 	}

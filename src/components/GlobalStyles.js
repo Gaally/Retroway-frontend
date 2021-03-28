@@ -18,7 +18,8 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         background: rgb(12,21,34);
-        background: linear-gradient(90deg, rgba(12,21,34,1) 20%, rgba(20,31,49,1) 50%, rgba(12,21,34,1) 80%);        font-family: 'IBM Plex Sans', sans-serif;
+        background: linear-gradient(90deg, rgba(12,21,34,1) 20%, rgba(20,31,49,1) 50%, rgba(12,21,34,1) 80%);        
+        font-family: 'IBM Plex Sans', sans-serif;
         width: 100%;
         color: #F5F5FA;
     }

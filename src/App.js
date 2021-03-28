@@ -11,7 +11,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
-import Profile from "./components/Profile";
+import Checkout from "./pages/Checkout";
 
 import GlobalStyles from "./components/GlobalStyles";
 // Router
@@ -41,9 +41,6 @@ function App() {
 				<Route path="/register" exact>
 					<Register />
 				</Route>
-				<Route path="/profile" exact>
-					<Profile />
-				</Route>
 				<Route path="/account" exact>
 					<Account />
 				</Route>
@@ -52,6 +49,9 @@ function App() {
 				</Route>
 				<Route path="/cart" exact>
 					<Cart />
+				</Route>
+				<Route path="/cart/checkout" exact>
+					<Checkout />
 				</Route>
 				<Route path="/:id" exact>
 					<Details />

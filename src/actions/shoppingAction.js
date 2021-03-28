@@ -1,5 +1,5 @@
 import axios from "axios";
-import { productDetailsURL, ordersURL } from "../api";
+import { productDetailsURL, ordered } from "../api";
 
 import {
 	ADD_TO_CART,
@@ -8,16 +8,14 @@ import {
 	ADD_ORDER,
 } from "./actionTypes";
 
-export const createOrder = (id) => async (dispatch) => {
+export const createOrder = (shipTo, totalCost) => async (dispatch) => {
 	try {
-		const { data } = await axios.post(ordersURL(id));
+		const { data } = await ordered(shipTo, totalCost);
 		console.log(data);
-
 		dispatch({
 			type: ADD_ORDER,
 			payload: {
 				neworder: data,
-				cart: id,
 			},
 		});
 	} catch (error) {
